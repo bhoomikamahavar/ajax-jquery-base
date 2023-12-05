@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <title>
+        JQuery | Get all selected checkboxes in an array.
+    </title>
+    <style>
+        #GFG_UP {
+            font-size: 17px;
+            font-weight: bold;
+        }
+          
+        #GFG_DOWN {
+            color: green;
+            font-size: 24px;
+            font-weight: bold;
+        }
+          
+        button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<script src=
+     "https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+</script>
+  
+<body style="text-align:center;" id="body">
+    <h1 style="color:green;">  
+            GeeksforGeeks  
+    </h1>
+    
+    <p id="GFG_UP">
+    </p>
+
+    <!-- <input type="button" onclick='selects()' value="Select All"/>   -->
+    <!-- <input type="button" onclick='deSelect()' value="Deselect All"/> -->
+    
+    <br/>
+
+    <br>
+
+    <input type="checkbox" name="chk" value="" id="checkboxconditionall" onclick="checkboxcondition()" /> ALL <br>
+    <input type="checkbox" name="chk" value="One" /> One
+    <input type="checkbox" name="chk" value="Two" /> Two
+    <input type="checkbox" name="chk" value="Three" /> Three
+    <input type="checkbox" name="chk" value="Four" />Four
+    <br>
+    
+    <button>
+        click here
+    </button>
+    <p id="GFG_DOWN">
+    </p>
+    
+    <script>
+        $('#GFG_UP')
+        .text('First check few elements then click on the button.');
+        $('button').on('click', function() {
+            var array = [];
+            $("input:checked").each(function() {
+                
+                array.push($(this).val() );
+
+
+            });
+
+
+
+            $('#GFG_DOWN').text(array.join(","));
+
+        });
+    </script>
+
+    <script type="text/javascript">  
+
+
+        function checkboxcondition(){
+
+            if ($('input#checkboxconditionall').is(':checked')) {
+
+                    var ele=document.getElementsByName('chk');  
+                    
+                    for(var i=0; i<ele.length; i++){  
+                        if(ele[i].type=='checkbox')  
+                            ele[i].checked=true;  
+                    } 
+
+            }else{
+
+                var ele=document.getElementsByName('chk');  
+                for(var i=0; i<ele.length; i++){  
+                    if(ele[i].type=='checkbox')  
+                        ele[i].checked=false;  
+                        
+                }
+
+
+            }
+
+        }
+
+    
+
+        // function selects(){  
+
+        //     var ele=document.getElementsByName('chk');  
+        //     for(var i=0; i<ele.length; i++){  
+        //         if(ele[i].type=='checkbox')  
+        //             ele[i].checked=true;  
+        //     }  
+
+        // }  
+        // function deSelect(){  
+        //     var ele=document.getElementsByName('chk');  
+        //     for(var i=0; i<ele.length; i++){  
+        //         if(ele[i].type=='checkbox')  
+        //             ele[i].checked=false;  
+                    
+        //     }  
+        // }             
+    </script> 
+
+
+
+</body>
+  
+</html>
